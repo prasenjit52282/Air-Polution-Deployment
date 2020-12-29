@@ -78,6 +78,11 @@ from flask_cors import cross_origin
 app = Flask(__name__)
 
 @cross_origin
+@app.route('/')
+def home():
+    return "Home"
+
+@cross_origin
 @app.route('/<date>/<hour>')
 def fun(date='2020-12-19',hour='11'):
     df=crawler(date+' '+hour)[feat_cols]
